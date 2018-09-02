@@ -165,7 +165,7 @@ def perception_step(Rover):
         #          Rover.worldmap[rock_y_world, rock_x_world, 1] += 1
         #          Rover.worldmap[navigable_y_world, navigable_x_world, 2] += 1
     #避免滾動更新
-    if ((Rover.roll < 0.5) | (Rover.roll > 359.5) )& ((Rover.pitch < 0.5) | (Rover.pitch > 359.5)):
+    if ((Rover.roll < Rover.roll_limit) | (Rover.roll > (360 - Rover.roll_limit)) )& ((Rover.pitch < Rover.roll_limit) | (Rover.pitch > (360 - Rover.roll_limit))):
         Rover.worldmap[obs_y_world, obs_x_world, 0] = 255
         Rover.worldmap[rock_y_world, rock_x_world, 1] = 255
         Rover.worldmap[y_world, x_world, 2] = 255    
